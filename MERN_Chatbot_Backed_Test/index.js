@@ -7,19 +7,20 @@ dotenv.config();
 
 const app = express();
 
-// using middleware
+// Using middleware
 app.use(express.json());
 app.use(cors());
 
-//importing routes
+// Importing routes
 import userRoutes from "./routes/userRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
-//using routes
+// Using routes
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 
+// Starting the server and connecting to the database
 app.listen(process.env.PORT || 5000, () => {
-  console.log(server is working on port ${process.env.PORT});
+  console.log(`Server is working on port ${process.env.PORT || 5000}`);
   connectDb();
-}); 
+});
