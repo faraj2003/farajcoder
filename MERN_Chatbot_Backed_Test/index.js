@@ -7,19 +7,26 @@ dotenv.config();
 
 const app = express();
 
-// using middleware
+// Using middleware
 app.use(express.json());
-app.use(cors());
 
-//importing routes
+// Configure CORS
+app.use(cors({
+  origin: "https://farajcoder8.onrender.com", // Your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  credentials: true, // If you're using cookies or authentication
+}));
+
+// Importing routes
 import userRoutes from "./routes/userRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 
-//using routes
+// Using routes
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 
+// Start the server
 app.listen(process.env.PORT || 5000, () => {
-  console.log(`server is working on port ${process.env.PORT}`);
+  console.log(`Server is working on port ${process.env.PORT || 5000}`);
   connectDb();
 });
