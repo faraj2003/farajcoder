@@ -5,8 +5,8 @@ import "./index.css";
 import { UserProvider } from "./context/UserContext.jsx";
 import { ChatProvider } from "./context/ChatContext.jsx";
 
-export const server = "https://farajcoder-3.onrender.com";
-// export const server = "https://mern-chatbot-mlgu.onrender.com";
+export const server = "https://farajcoder16.onrender.com";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
